@@ -1,0 +1,26 @@
+server:
+  port: 9000
+spring:
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  jpa:
+   hibernate:
+    ddl-auto: create-drop
+    naming:
+      strategy: org.hibernate.cfg.ImprovedNamingStrategy
+   database: HSQL
+  datasource:
+   url: jdbc:hsqldb:hsql://localhost/testdb
+   driver-class-name: org.hsqldb.jdbc.JDBCDriver
+   
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discovery:8761/eureka/
+  instance:
+    preferIpAddress: true
+
+ribbon:
+  eureka:
+    enabled: true
